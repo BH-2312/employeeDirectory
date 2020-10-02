@@ -26,7 +26,7 @@ Simply hit the sort button to sort employees or use the search bar to search thr
 
 Screenshot located at:
 
-![screenshot](.\public\img\screenshot.png)
+![screenshot](./public/img/screenshot.png)
 
 ## License
 
