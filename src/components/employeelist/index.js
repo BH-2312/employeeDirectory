@@ -12,12 +12,12 @@ function EmployeeList(props) {
         <tr>
           <th>Profile Pic</th>
           <th>
-          Employee Name    
+            Employee Name
           <Button
               type="button"
               onClick={props.handleSortSelect}
               data-tag="Name"
-              id = "Btn"
+              id="Btn"
             >
               Sort
           </Button>

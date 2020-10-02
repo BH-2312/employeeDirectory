@@ -14,35 +14,31 @@ class App extends Component {
   }
 
   searchName = query => {
-    let arrEmployees = this.state.employees;
-    arrEmployees = arrEmployees.filter(res => res.name.toLowerCase().includes(query.toLowerCase()));
-    console.log(arrEmployees);
+    let employeeArray = this.state.employees;
+    employeeArray = employeeArray.filter(res => res.name.toLowerCase().includes(query.toLowerCase()));
     if (query === "") {
-      console.log("No Query")
+      console.log("No Search")
       this.setState({ employees: employees });
       this.setState({ search: "" })
       return;
-    } else if (arrEmployees.length < 1) {
+    } else if (employeeArray.length < 1) {
       this.setState({ search: "" })
       this.setState({ employees: employees });
       console.log(employees)
       console.log("No search")
-      alert("No Match");
+      alert("No Employee Match");
       return;
     } else {
-      this.setState({ employees: arrEmployees });
+      this.setState({ employees: employeeArray });
     }
   };
 
   sort = query => {
-    let arrEmployees = this.state.employees;
-    console.log("Sorting");
-    console.log(query);
+    let employeeArray = this.state.employees;
     if (query === "Name") {
-      arrEmployees = arrEmployees.sort(function (a, b) {
-        console.log("in sort function-name")
+      employeeArray = employeeArray.sort(function (a, b) {
         let nameA = a.name.toLowerCase(), nameB = b.name.toLowerCase()
-        if (nameA < nameB) //sort string ascending
+        if (nameA < nameB)
           return -1
         if (nameA > nameB)
           return 1
@@ -50,19 +46,18 @@ class App extends Component {
       })
       if (this.state.sortName === true) {
         this.setState({ sortName: false })
-        this.setState({ employees: arrEmployees });
-        console.log("in true sort NAME");
+        this.setState({ employees: employeeArray });
+
         return;
       }
       if (this.state.sortName === false) {
-        arrEmployees = arrEmployees.reverse();
+        employeeArray = employeeArray.reverse();
         this.setState({ sortName: true })
-        this.setState({ employees: arrEmployees });
-        console.log("in false sort NAME");
+        this.setState({ employees: employeeArray });
+
         return;
       }
-      console.log("in sort query1-NAME")
-      console.log(arrEmployees)
+
     }
   }
 
