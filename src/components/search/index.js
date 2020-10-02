@@ -1,23 +1,23 @@
 import React from "react";
 import "./style.css";
+import { Button } from 'react-bootstrap';
 
 function Search(props) {
-    return (
-            <Form inline>
-                <FormControl
-                    type="text"
-                    onKeyPress={(e) => { e.key === 'Enter' && e.preventDefault(); }}
-                    placeholder="Name"
-                    className="mr-sm-2"
-                    onChange={props.handleInputChange}
-                    value={props.value}
-                    name="search" />
-                <Button 
-                variant="outline-primary" 
-                onClick={props.handleFormSubmit}>Search</Button>
-            </Form>
+  return (
+    <form className="form">
+      <input
+        type="text"
+        placeholder="Employee Name"
+        className="mr-sm-2"
+        onChange={props.handleInputChange}
+        value={props.value}
+        name="search"
+        onKeyPress={(e) => { e.key === 'Enter' && e.preventDefault(); }}
+      />
+      <Button onClick={props.handleFormSubmit}>Search</Button>
+    </form>
 
-    );
+  );
 }
 
 export default Search;
